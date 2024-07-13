@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>WorldPose Challenge 2025</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <script src="./static/js/count-down.js"></script>
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">WorldPose Challenge 2025</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <img src="./static/images/teaser.jpg" class="center" />
+                <h2 class="subtitle has-text-centered">
+                    WorldPose is a novel dataset for advancing research in multi-person global pose estimation from
+                    monocular videos, featuring footage from the 2022 FIFA World Cup.
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <h2 class="title is-4">Challenge Overview</h2>
+            <div class="content has-text-justified">
+                <p>
+                    We are organizing a challenge at CVPR 2025 to benchmark the performance of global 3D human pose
+                    estimation methods on the WorldPose dataset.
+                    The challenge will feature a public leaderboard and a workshop at CVPR 2025.
+                    Stay tuned for more information!
+                </p>
+            </div>
+
+            <h2 class="title is-4">Dates</h2>
+            <div class="content has-text-justified">
+                <table id="dateTableBody">
+                    <tr>
+                        <th>Event</th>
+                        <th>Date</th>
+                        <th>Countdown</th>
+                    </tr>
+                    <tr>
+                        <td>Dataset release</td>
+                        <td>2024-July-15</td>
+                        <td id="countdown-dataset"></td>
+                    </tr>
+                    <tr>
+                        <td>Competition Launch</td>
+                        <td>2024-Oct-01</td>
+                        <td id="countdown-launch"></td>
+                    </tr>
+                    <tr>
+                        <td>Submission Deadline</td>
+                        <td>2025-May-03</td>
+                        <td id="countdown-deadline"></td>
+                    </tr>
+                    <tr>
+                        <td>Challenge results released</td>
+                        <td>2025-June-03</td>
+                        <td id="countdown-results"></td>
+                    </tr>
+                    <tr>
+                        <td>Winner Presents at the CVPR workshop</td>
+                        <td>2025-June-17</td>
+                        <td id="countdown-workshop"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2 class="title is-4">Rules</h2>
+            <div class="content has-text-justified">
+                <p>
+                    Participants are encouraged, though not required, to train their algorithms using publicly available
+                    datasets. Predictions should include tracks of multiple players, with each track providing the body
+                    pose, global orientation, and translation for every frame. Submissions must be uploaded and publicly
+                    displayed on the leaderboard. Please specify any external data used for training in the 'method
+                    description' when uploading results to the evaluation server.
+                </p>
+                <p>
+                    By the challenge deadline, results for both the validation and test sets must be submitted to the
+                    evaluation server. Validation results will be made public for performance diagnosis and
+                    visualization. Competitors' algorithms will be evaluated based on feedback from human judges, and
+                    the top-performing teams will be awarded prizes.
+                </p>
+            </div>
+
+            <h2 class="title is-4">Copyright</h2>
+            <div class="content has-text-justified">
+                <p>
+                    The data will be released under the CC BY-NC-SA (Creative Commons
+                    Attribution-NonCommercial-ShareAlike) license, which means you must attribute the work in the manner
+                    specified by the authors, you may not use this work for commercial purposes and if you alter,
+                    transform, or build upon this work, you may distribute the resulting work only under the same
+                    license.
+                </p>
+                <p>
+                    For broadcasting videos, whose copyrights are owned by FIFA, participants are required to submit
+                    additional data request forms. These requests will be reviewed and approved by FIFA.
+                </p>
+            </div>
+
+            <h2 class="title is-4">Evaluation</h2>
+            <div class="content has-text-justified">
+                <p>
+                    The evaluation server will use the <a href="[evaluation code]">evaluation code</a> provided here,
+                    which calculates several common metrics, including PA-MPJPE, G-MPJPE, and Per-Meter Drift, as
+                    described in our paper.
+                </p>
+                <p>
+                    To obtain results on the test set, where ground truth annotations are hidden, participants must
+                    submit their generated results to the evaluation server. The same evaluation code mentioned above
+                    will be used to evaluate the generated captions on the test set.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+<script>
+    function updateCountdown() {
+        const rows = document.querySelectorAll("#dateTableBody tr");
+        const now = new Date().getTime();
+        rows.forEach(row => {
+            const dateCell = row.cells[1].textContent;
+            // skip the header row
+            if (dateCell.includes("Date")) {
+                return;
+            }
+            const countdownCell = row.cells[2];
+            const eventDate = new Date(dateCell).getTime();
+            const distance = eventDate - now;
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                countdownCell.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            } else {
+                countdownCell.textContent = "Event Passed";
+            }
+        });
+    }
+    setInterval(updateCountdown, 1000);
+</script>
+</body>
+</html>
