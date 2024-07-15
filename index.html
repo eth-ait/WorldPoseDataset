@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" type="image/png" href="./static/images/favicon.ico">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -30,16 +31,27 @@
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">WorldPose: A World Cup Dataset for Multi-Person Global 3D Human Pose Estimation</h1>
           <div class="is-size-5 publication-authors">
-            <span class="author-block"> <a href="#">Anonymous</a><sup>1, 2</sup>,</span>
+            <span class="author-block"> <a href="#">Tianjian Jiang</a><sup>1*</sup>,</span>
+            <span class="author-block"> <a href="#">Johsan Bilingham</a><sup>2*</sup>,</span>
+            <span class="author-block"> <a href="#">Sebastian Müksch</a><sup>1</sup>,</span>
+            <span class="author-block"> <a href="#">Juan Zarate</a><sup>1</sup>,</span>
+            <span class="author-block"> <a href="#">Nikolas Evans</a><sup>2</sup>,</span>
+            <span class="author-block"> <a href="#">Martin R. Oswald</a><sup>1</sup>,</span>
+            <span class="author-block"> <a href="#">Marc Polleyfeys</a><sup>1,3</sup>,</span>
+            <span class="author-block"> <a href="#">Otmar Hilliges</a><sup>1</sup>,</span>
+            <span class="author-block"> <a href="#">Manuel Kaufmann</a><sup>1</sup>,</span>
+            <span class="author-block"> <a href="#">Jie Song</a><sup>1</sup></span>
           </div>
 
-          <div class="is-size-6">
+          <div class="is-size-9">
               *Equal Contribution
           </div>
 
           <div class="is-size-6 publication-authors">
             <span class="author-block"><sup>1</sup>ETH Zürich,</span>
             <span class="author-block"><sup>2</sup>FIFA</span>
+            <span class="author-block"><sup>3</sup>Microsoft</span>
+            <span class="author-block"><sup>4</sup>University of Amsterdam</span>
           </div>
 
           <div class="column has-text-centered">
@@ -65,7 +77,7 @@
                 </a>
               </span>
               <!-- Code Link. -->
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="#"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -73,9 +85,9 @@
                   </span>
                   <span>Code</span>
                   </a>
-              </span>
+              </span> -->
               <!-- Challenge Link. -->
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="/challenge.html"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -83,6 +95,16 @@
                   </span>
                   <span>Challenge</span>
                   </a>
+              </span> -->
+              <!-- Data Link. -->
+              <span class="link-block">
+                <a href="#Dataset"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-database"></i>
+                  </span>
+                  <span>Data</span>
+                </a>
               </span>
             </div>
           </div>
@@ -137,21 +159,19 @@ All pose annotations (in SMPL format), broadcasting camera parameters and footag
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Challenge @CVPR25</h2>
+        <h2 class="title is-3">Dataset</h2>
         <div class="content has-text-justified">
           <p>
-            We are organizing a challenge at CVPR 2025 to benchmark the performance of global 3D human pose estimation methods on the WorldPose dataset.
-            The challenge will feature a public leaderboard and a workshop at CVPR 2025.
-            Stay tuned for more information!
+            Please fill out the <a href="https://worldpose.ait.ethz.ch">data request form</a> to access the dataset (which includes 3D poses and camera parameters). The footage is owned by FIFA and is subject to an additional agreement. Please refer to the README file for instructions on accessing the videos.
           </p>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 
 </body>
 </html>
