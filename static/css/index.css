@@ -28,9 +28,6 @@ body {
 }
 
 
-.publication-title {
-}
-
 .publication-banner {
   max-height: parent;
 
@@ -67,9 +64,6 @@ body {
     font-weight: bolder;
 }
 
-.publication-authors {
-}
-
 .publication-authors a {
    color: hsl(204, 86%, 53%) !important;
 }
@@ -80,13 +74,6 @@ body {
 
 .author-block {
   display: inline-block;
-}
-
-.publication-banner img {
-}
-
-.publication-authors {
-  /*color: #4286f4;*/
 }
 
 .publication-video {
@@ -107,53 +94,38 @@ body {
     height: 100%;
 }
 
-.publication-body img {
-}
-
-.results-carousel {
-  overflow: hidden;
-}
-
-.results-carousel .item {
-  margin: 5px;
-  overflow: hidden;
-  border: 1px solid #bbb;
-  border-radius: 10px;
-  padding: 0;
-  font-size: 0;
-}
-
-.results-carousel video {
-  margin: 0;
-}
-
-.interpolation-panel {
-  background: #f5f5f5;
-  border-radius: 10px;
-}
-
-.interpolation-panel .interpolation-image {
-  width: 100%;
-  border-radius: 5px;
-}
-
-.interpolation-video-column {
-}
-
-.interpolation-panel .slider {
-  margin: 0 !important;
-}
-
-.interpolation-panel .slider {
-  margin: 0 !important;
-}
-
-#interpolation-image-wrapper {
-  width: 100%;
-}
-
-#interpolation-image-wrapper img {
-  border-radius: 5px;
-}
-
 .preload { visibility: hidden; }
+
+/* Style the container */
+.slider-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 10px;
+}
+
+/* Style each slider item */
+.slider-item {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  max-width: 120%; /* Prevent images from overflowing */
+  text-align: center; /* Center-align content within items */
+}
+
+/* Style the images */
+.slider-item img {
+  max-width: 100%; /* Ensure images don't exceed container width */
+  max-height: 400px; /* Limit image height */
+  object-fit: cover; /* Maintain aspect ratio while cropping excess */
+  border-radius: 8px; /* Optional: rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}
+
+/* Style the videos */
+.slider-item video {
+  max-width: 100%; /* Ensure images don't exceed container width */
+  max-height: 400px; /* Limit image height */
+  object-fit: cover; /* Maintain aspect ratio while cropping excess */
+  border-radius: 8px; /* Optional: rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}
